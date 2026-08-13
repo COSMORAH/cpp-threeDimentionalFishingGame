@@ -2,9 +2,9 @@
 #include "include/raylib-cpp.hpp"
 
 int main() {
-	int screenWidth  { 1920 };
-	int screenHeight { 1080 };
-	raylib::Color textColor = raylib::Color::LightGray();
+	int screenWidth  { 1280 };
+	int screenHeight { 720 };
+	raylib::Color textColor = raylib::Color::DarkGray();
 	raylib::Window window(screenWidth, screenHeight, "Fishing Game");
 	SetTargetFPS(60);
 
@@ -18,11 +18,16 @@ int main() {
         // Draw
         //----------------------------------------------------------------------------------
         while (window.Drawing()) {
-            window.ClearBackground(RAYWHITE);
-            textColor.DrawText("Congrats! You created your first window!", 190, 200, 20);
         }
         //----------------------------------------------------------------------------------
     }
 
 	return 0;
 }
+
+/*
+##### INFORMATION FOR LATER #####
+
+textColor.DrawText("text", [x axis], [y axis], [scale]);
+
+*/
