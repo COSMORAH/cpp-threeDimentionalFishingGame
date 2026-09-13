@@ -6,13 +6,16 @@ bool isMenuOpen { false };
 
 int main(int argc, char* argv[]) {
 
-	int windowHeight { 800 };
-	int windowWidth { 450 };
+	const int WINDOW_WIDTH_INIT { 800 };
+	const int WINDOW_HEIGHT_INIT { 450 };
 	int targetFPS { 60 };
 	std::string title = "Window";
 
-	InitWindow(windowHeight, windowWidth, title.c_str());
+	InitWindow(WINDOW_WIDTH_INIT, WINDOW_HEIGHT_INIT, title.c_str());
 	SetTargetFPS(targetFPS);
+
+	int screenW = GetScreenWidth();
+	int screenH = GetScreenHeight();
 
 	while(!WindowShouldClose()) {
 
@@ -25,8 +28,10 @@ int main(int argc, char* argv[]) {
 
 		ClearBackground(SKYBLUE);
 
-		if (isMenuOpen)
-			DrawRectangle(0, 0, windowHeight, windowWidth, BLACK);
+		if (isMenuOpen) {
+			DrawRectangle(0, 100, screenW, 200, RED);
+			DrawText("Test Menu", screenW/2 - 15, screenH/2 - 15, 30, WHITE);
+		}
 
 		EndDrawing();
 	}
